@@ -81,6 +81,13 @@ const Login = () => {
               </Link>
             </span>
           </div>
+          <div>
+            <span className="font-semibold">Trial Accounts:</span>
+            <div className="mt-2">Email:cem@socialz.com</div>
+            <div>Password:Cem123x?</div>
+            <div className="mt-2">Email:hediye@socialz.com</div>
+            <div>Password:Hediye123x?</div>
+          </div>
         </div>
       </div>
     </form>

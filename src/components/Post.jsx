@@ -535,9 +535,9 @@ const Post = ({ post }) => {
       </div>
 
       <div
-        className={`flex justify-center ${
-          post.fileContent === "" ? "hidden" : ""
-        }  ${delPostPanel || editPostPanel ? "opacity-70" : ""}`}
+        className={`flex justify-center ${image === "" ? "hidden" : ""}  ${
+          delPostPanel || editPostPanel ? "opacity-70" : ""
+        }`}
       >
         <img src={image} alt="" className="w-full h-auto" />
       </div>
