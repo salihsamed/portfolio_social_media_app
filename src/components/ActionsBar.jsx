@@ -150,7 +150,7 @@ const ActionsBar = ({ visibility }) => {
         </div>
 
         <div
-          className={`bg-red-500 rounded-full  absolute -top-2 -left-2 px-1 text-white text-xs font-semibold max-sm:hidden ${
+          className={`bg-red-500 rounded-full  absolute -top-2 -left-2 px-1 text-white text-xs font-semibold ${
             notification.length > 0 ? "block" : "hidden"
           }`}
         >
