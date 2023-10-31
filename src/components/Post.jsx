@@ -562,8 +562,10 @@ const Post = ({ post }) => {
         <BiLike
           size={23}
           className={`${
-            likeColor ? "text-blue-500 " : "text-gray-500 "
-          }hover:text-blue-500 cursor-pointer dark:text-gray-200 dark:hover:text-blue-500`}
+            likeColor
+              ? "text-blue-500 dark:text-blue-500 "
+              : "text-gray-500 dark:text-gray-200 "
+          }hover:text-blue-500 cursor-pointer  dark:hover:text-blue-500`}
           onClick={like}
         />
         <BiComment
