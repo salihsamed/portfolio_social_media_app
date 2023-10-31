@@ -21,7 +21,7 @@ const PostPage = () => {
 
   return (
     <div className="dark:bg-black py-10 min-h-[100vh]">
-      <div className="w-[40%] mx-auto">
+      <div className="xl:w-[40%] lg:w-[50%] md:w-[65%] max-md:w-[95%] mx-auto">
         {Object.keys(infos).length > 0 ? (
           <Post post={infos} key={infos.postID} />
         ) : (
