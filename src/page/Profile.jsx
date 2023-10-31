@@ -453,7 +453,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="sametInputBgColor min-h-screen dark:bg-black">
+    <div className="sametInputBgColor min-h-screen dark:bg-black pb-[10vh]">
       {Object.keys(userInfos).length === 0 ? (
         <div>Loading...</div>
       ) : (
@@ -740,7 +740,7 @@ const Profile = () => {
           </div>
 
           <div
-            className={`fixed bottom-[0] right-[0px] ${
+            className={`fixed bottom-[0] right-[0px] z-20 ${
               chatVisibility ? "block" : "hidden"
             }`}
           >

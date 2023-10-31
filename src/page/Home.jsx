@@ -155,7 +155,7 @@ const Home = () => {
   ) : (
     <div
       id="homeContainer"
-      className="flex flex-col items-center sametInputBgColor dark:bg-black min-h-screen"
+      className="flex flex-col items-center sametInputBgColor dark:bg-black min-h-screen  pb-[10vh]"
     >
       <div className="flex-row xl:w-[40%] lg:w-[50%] md:w-[65%] max-md:w-[95%] bg-white dark:bg-black dark:border dark:border-gray-700 p-3 rounded-lg mt-5">
         <div className="flex-1 gap-5 flex">
@@ -296,7 +296,7 @@ const Home = () => {
       </div>
 
       <div
-        className={`fixed bottom-[0] right-[0px] ${
+        className={`fixed bottom-[0] right-[0px] z-20 ${
           chatVisibility ? "block" : "hidden"
         }`}
       >

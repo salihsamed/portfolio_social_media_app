@@ -492,7 +492,7 @@ const Post = ({ post }) => {
 
   return (
     <div
-      className={`border bg-white dark:bg-black dark:text-white dark:border-gray-700 rounded-lg relative `}
+      className={`border bg-white dark:bg-black dark:text-white dark:border-gray-700 rounded-lg relative`}
     >
       <div
         className={`flex justify-between ${

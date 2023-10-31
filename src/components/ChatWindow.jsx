@@ -11,13 +11,13 @@ const ChatWindow = () => {
   const { data, dispatch } = useContext(ChatContext);
 
   return (
-    <div className=" rounded-t-lg overflow-hidden dark:border-l dark:border-t dark:border-gray-700 z-20">
+    <div className=" rounded-t-lg overflow-hidden dark:border-l dark:border-t dark:border-gray-700">
       <div className="flex bg-blue-500 p-2  items-center dark:bg-black dark:border-b dark:border-gray-700 ">
         <GiPalmTree size={27} className="text-white" />
         <span className="text-white text-lg ">Messenger</span>
       </div>
 
-      <div className="flex h-[500px] max-md:h-[80vh]   overflow-hidden ">
+      <div className="flex h-[500px] max-md:h-[80vh] overflow-hidden ">
         <div
           className={`md:w-[30vw] lg:w-[20vw] xl:w-[15vw] ${
             !Object.keys(data.user).length ? "max-sm:w-[100vw]" : "max-sm:w-0"

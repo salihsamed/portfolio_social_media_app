@@ -39,7 +39,7 @@ const PostsContainer = () => {
   }, [postOwners, userPosts, friendsPostCountSolid]);
 
   return (
-    <div className="flex flex-col gap-5 xl:w-[40%] lg:w-[50%] md:w-[65%] max-md:w-[95%] mt-5">
+    <div className="flex flex-col gap-5 xl:w-[40%] lg:w-[50%] md:w-[65%] max-md:w-[95%] mt-5 mb-20">
       {!loading ? (
         posts.length ? (
           posts
