@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { MdPermMedia } from "react-icons/md";
 import PostsContainer from "../components/PostsContainer";
 import { UserContext } from "../context/UserContext";
@@ -40,6 +40,18 @@ const Home = () => {
   const switchChatVisibility = () => {
     setChatVisibility(!chatVisibility);
   };
+
+  useEffect(() => {
+    if (chatVisibility) {
+      document.getElementById("root").classList.add("h-[100dvh]");
+
+      document.getElementById("root").classList.add("overflow-y-hidden");
+    } else {
+      document.getElementById("root").classList.remove("h-[100dvh]");
+
+      document.getElementById("root").classList.remove("overflow-y-hidden");
+    }
+  }, [chatVisibility]);
 
   const check = () => {
     setFileInputCheck(!fileInputCheck);

@@ -53,6 +53,18 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (chatVisibility) {
+      document.getElementById("root").classList.add("h-[100dvh]");
+
+      document.getElementById("root").classList.add("overflow-y-hidden");
+    } else {
+      document.getElementById("root").classList.remove("h-[100dvh]");
+
+      document.getElementById("root").classList.remove("overflow-y-hidden");
+    }
+  }, [chatVisibility]);
+
+  useEffect(() => {
     setCanSeeProfile(false);
     getUserID();
   }, [userName]);
