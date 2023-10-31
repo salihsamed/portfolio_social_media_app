@@ -22,7 +22,7 @@ const Login = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex justify-center w-full h-[100vh] relative">
+      <div className="flex justify-center w-full min-h-[100vh] relative">
         <div
           className="flex items-center cursor-pointer absolute top-3 left-3"
           onClick={() => {
