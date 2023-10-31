@@ -55,11 +55,11 @@ const MobileNavbar = ({ visibility, closeFunc }) => {
   }, [mode]);
 
   if (visibility) {
-    document.getElementById("root").classList.add("h-[100vh]");
+    document.getElementById("root").classList.add("h-[100dvh]");
 
     document.getElementById("root").classList.add("overflow-y-hidden");
   } else {
-    document.getElementById("root").classList.remove("h-[100vh]");
+    document.getElementById("root").classList.remove("h-[100dvh]");
 
     document.getElementById("root").classList.remove("overflow-y-hidden");
   }
