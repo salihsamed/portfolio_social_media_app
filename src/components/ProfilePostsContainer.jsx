@@ -5,7 +5,7 @@ import { db } from "../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 const ProfilePostsContainer = ({ userID }) => {
-  // const {userInfos}=useContext(UserContext);
+  const { userPosts } = useContext(UserContext);
   const [posts, setPosts] = useState([]);
   const [postOwners, setPostOwners] = useState([]);
 
@@ -30,7 +30,7 @@ const ProfilePostsContainer = ({ userID }) => {
         setPosts(newpostArray);
       });
     }
-  }, [postOwners]);
+  }, [postOwners, userPosts]);
 
   return (
     <div className="flex flex-col gap-5 w-full mt-5">
