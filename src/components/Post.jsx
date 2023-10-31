@@ -62,6 +62,8 @@ const Post = ({ post }) => {
   const reference = useRef(null);
   const [likesPanelVisibility, setLikesPanelVisibility] = useState(false);
   const [warning, setWarning] = useState("");
+  const [text, setText] = useState(post.textContent);
+  const [image, setImage] = useState(post.fileContent);
 
   useEffect(() => {
     const unSub = onSnapshot(q, (querySnapshot) => {
@@ -73,6 +75,8 @@ const Post = ({ post }) => {
             setLikes(element.likes);
             setLikeCount(element.likes.length);
             setCommentCount(element.comments.length);
+            setText(element.textContent);
+            setImage(element.fileContent);
           }
         });
       });
@@ -535,7 +539,7 @@ const Post = ({ post }) => {
           post.fileContent === "" ? "hidden" : ""
         }  ${delPostPanel || editPostPanel ? "opacity-70" : ""}`}
       >
-        <img src={post.fileContent} alt="" className="w-full h-auto" />
+        <img src={image} alt="" className="w-full h-auto" />
       </div>
       <p
         className={`mb-2 px-2 ${
@@ -547,7 +551,7 @@ const Post = ({ post }) => {
         >
           {name}&nbsp;
         </span>
-        {post.textContent}
+        {text}
       </p>
 
       <div
