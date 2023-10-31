@@ -12,7 +12,8 @@ import { NotificationContext } from "../context/NotificationContext";
 
 const MobileNavbar = ({ visibility, closeFunc }) => {
   const [mode, setMode] = useState(false);
-  const { userInfos, userUnsub1, userUnsub2 } = useContext(UserContext);
+  const { userInfos, userUnsub1, userUnsub2, unsubscribeArr } =
+    useContext(UserContext);
   const { notUnsub1 } = useContext(NotificationContext);
   const { dispatch, chatUnsub1, chatUnsub2, chatUnsub3 } =
     useContext(ChatContext);
@@ -25,6 +26,9 @@ const MobileNavbar = ({ visibility, closeFunc }) => {
     dispatch({ type: "REMOVE_USER" });
     userUnsub1();
     userUnsub2();
+    for (const element of unsubscribeArr) {
+      element();
+    }
     notUnsub1();
     chatUnsub1();
     if (chatUnsub2 !== null) {

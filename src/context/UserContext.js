@@ -18,6 +18,10 @@ export const UserContextProvider = ({ children }) => {
   const [userPosts, setUserPosts] = useState({});
   const [userUnsub1, setUnsub1] = useState(null);
   const [userUnsub2, setUnsub2] = useState(null);
+  const [unsubscribeArr, setUnsubscribeArr] = useState([]);
+  const [friendsPostCount, setFriendsPostCount] = useState({});
+  const [checkString, setCheckString] = useState("");
+  const [friendsPostCountSolid, setFriendsPostCountSolid] = useState(0);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (user) => {
@@ -67,7 +71,6 @@ export const UserContextProvider = ({ children }) => {
     setUnsub1(() => unsubscribe);
     setUnsub2(() => unsubscribe2);
 
-    // userInfos değiştiğinde getChats fonksiyonunu çağır
     userInfos.userName && getInfos();
 
     // useEffect temizlenirken aboneliği iptal et
@@ -81,6 +84,50 @@ export const UserContextProvider = ({ children }) => {
       }
     };
   }, [userInfos.userID]);
+
+  useEffect(() => {
+    if (userFriends.length > 0) {
+      if (unsubscribeArr.length > 0) {
+        for (const element1 of unsubscribeArr) {
+          element1();
+        }
+      }
+
+      const funcs = [];
+      const postCount = {};
+
+      for (const element2 of userFriends) {
+        const unsbscrb = onSnapshot(doc(db, "posts", element2), (doc) => {
+          postCount[element2] = Object.keys(doc.data()).length;
+          setFriendsPostCount(postCount);
+          setCheckString(JSON.stringify(postCount));
+        });
+
+        funcs.push(unsbscrb);
+      }
+
+      setUnsubscribeArr(funcs);
+      setFriendsPostCount(postCount);
+    }
+
+    return () => {
+      if (unsubscribeArr.length > 0) {
+        for (const element of unsubscribeArr) {
+          element();
+        }
+      }
+    };
+  }, [userFriends]);
+
+  useEffect(() => {
+    if (Object.keys(friendsPostCount).length > 0) {
+      let sayac = 0;
+      Object.values(friendsPostCount).forEach((element) => {
+        sayac += element;
+      });
+      setFriendsPostCountSolid(sayac);
+    }
+  }, [checkString]);
 
   const INITIAL_STATE = {
     logout: false,
@@ -114,6 +161,8 @@ export const UserContextProvider = ({ children }) => {
         userUnsub2,
         logout: state.logout,
         logoutDispatch,
+        friendsPostCountSolid,
+        unsubscribeArr,
       }}
     >
       {children}

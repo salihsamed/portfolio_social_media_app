@@ -193,6 +193,7 @@ const SignUp = () => {
       await setDoc(doc(db, "notifications", res.user.uid), {
         seenActions: [],
         unseenActions: [],
+        likeTimestamp: [],
         userID: res.user.uid,
       });
 

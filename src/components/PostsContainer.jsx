@@ -5,7 +5,8 @@ import { auth, db } from "../firebase/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 const PostsContainer = () => {
-  const { userInfos, userFriends, userPosts } = useContext(UserContext);
+  const { userInfos, userFriends, userPosts, friendsPostCountSolid } =
+    useContext(UserContext);
   const [posts, setPosts] = useState([]);
   const [postOwners, setPostOwners] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,7 @@ const PostsContainer = () => {
         setLoading(false);
       });
     }
-  }, [postOwners, userPosts]);
+  }, [postOwners, userPosts, friendsPostCountSolid]);
 
   return (
     <div className="flex flex-col gap-5 xl:w-[40%] lg:w-[50%] md:w-[65%] max-md:w-[95%] mt-5">
