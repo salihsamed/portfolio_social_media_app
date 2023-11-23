@@ -23,6 +23,7 @@ import { IoClose } from "react-icons/io5";
 import { ChatContext } from "../context/ChatContext";
 import axios from "axios";
 import FormData from "form-data";
+import { MoonLoader } from "react-spinners";
 
 const Home = () => {
   const wrapperRef = useRef(null);
@@ -36,6 +37,7 @@ const Home = () => {
   const [scrollButtonVisible, setScrollButtonVisible] = useState(false);
   const [chatVisibility, setChatVisibility] = useState(false);
   const [fileLink, setFileLink] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const switchChatVisibility = () => {
     setChatVisibility(!chatVisibility);
@@ -70,6 +72,7 @@ const Home = () => {
   const handleClick = async () => {
     if (file === null && text === "") return;
     var postID = uuid();
+    setLoading(true);
     if (file !== null) {
       let data = new FormData();
       data.append("image", file);
@@ -131,6 +134,7 @@ const Home = () => {
     setFile(null);
     setFileLink("");
     setText("");
+    setLoading(false);
   };
 
   const scrollTop = () => {
@@ -267,13 +271,21 @@ const Home = () => {
               <div className="items-center w-[60%] text-end">
                 <button
                   type="submit"
-                  className="px-4 py-1 rounded-2xl bg-blue-500 text-white hover:bg-blue-600 transition-all"
+                  className={`px-4 py-1 rounded-2xl bg-blue-500 text-white hover:bg-blue-600 transition-all ${
+                    loading ? "pointer-events-none opacity-70" : ""
+                  }`}
                   onClick={handleClick}
                 >
                   Post
                 </button>
               </div>
             </div>
+            {loading && (
+              <div className="flex gap-2 items-center justify-center dark:text-white">
+                <MoonLoader color="#3b82f6" size={23} />
+                Processing
+              </div>
+            )}
           </div>
         </div>
       </div>
