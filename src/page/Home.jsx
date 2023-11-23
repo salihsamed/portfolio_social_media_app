@@ -78,7 +78,7 @@ const Home = () => {
       };
 
       let response = await axios.post(
-        "https://nsfw-check.onrender.com/check_nsfw",
+        "https://nsfw-check-cmsw.onrender.com/check_nsfw",
         data,
         config
       );

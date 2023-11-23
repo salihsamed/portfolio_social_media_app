@@ -89,7 +89,7 @@ const SignUp = () => {
         };
 
         let response = await axios.post(
-          "https://nsfw-check.onrender.com/check_nsfw",
+          "https://nsfw-check-cmsw.onrender.com/check_nsfw",
           data,
           config
         );
@@ -112,7 +112,7 @@ const SignUp = () => {
         };
 
         let response = await axios.post(
-          "https://nsfw-check.onrender.com/check_nsfw",
+          "https://nsfw-check-cmsw.onrender.com/check_nsfw",
           data,
           config
         );

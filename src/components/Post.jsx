@@ -379,7 +379,7 @@ const Post = ({ post }) => {
       data.append("image", editFile);
 
       let response = await axios.post(
-        "https://nsfw-check.onrender.com/check_nsfw",
+        "https://nsfw-check-cmsw.onrender.com/check_nsfw",
         data,
         config
       );
@@ -413,7 +413,7 @@ const Post = ({ post }) => {
       data.append("image", editFile);
 
       let response = await axios.post(
-        "https://nsfw-check.onrender.com/check_nsfw",
+        "https://nsfw-check-cmsw.onrender.com/check_nsfw",
         data,
         config
       );

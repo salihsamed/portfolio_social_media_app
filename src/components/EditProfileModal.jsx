@@ -51,7 +51,7 @@ const EditProfileModal = ({ closeFunc, userInfos, refreshInfo }) => {
       data.append("image", profilePicture);
 
       let response = await axios.post(
-        "https://nsfw-check.onrender.com/check_nsfw",
+        "https://nsfw-check-cmsw.onrender.com/check_nsfw",
         data,
         config
       );
@@ -64,7 +64,7 @@ const EditProfileModal = ({ closeFunc, userInfos, refreshInfo }) => {
       data2.append("image", bannerPhoto);
 
       let response2 = await axios.post(
-        "https://nsfw-check.onrender.com/check_nsfw",
+        "https://nsfw-check-cmsw.onrender.com/check_nsfw",
         data2,
         config
       );
