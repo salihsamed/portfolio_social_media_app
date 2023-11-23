@@ -20,9 +20,10 @@ const MobileNavbar = ({ visibility, closeFunc }) => {
 
   const navigate = useNavigate();
 
+  console.log("visibility", visibility);
+
   const logOut = async () => {
-    document.getElementById("root").classList.remove("h-[100vh]");
-    document.getElementById("root").classList.remove("overflow-y-hidden");
+    closeFunc();
     dispatch({ type: "REMOVE_USER" });
     userUnsub1();
     userUnsub2();
